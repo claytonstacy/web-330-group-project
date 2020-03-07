@@ -4,6 +4,7 @@
   <title>Javascript Trivia</title>
   <link href="css/style.css" rel = "stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan:700&display=swap" rel="stylesheet">
+  <script src="javascript.js"></script>
   <meta charset = "UTF-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
 
@@ -16,23 +17,62 @@
 
   <div id = "slide-container">
 
-    <div class= "slide">
+    <div class= "slide flex">
       <div class="question-number"><h3><strong>Q1:</strong></h3></div>
       <div class="question">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Which statement is used to execute actions based on a trigger or condition?</p>
       </div>
         <hr style="border:2px solid #E52A6F; width:50%;">
       <div id = "form">
-      <button class="button">Choice A</button> <button class="button">Choice B</button>
-      <button class="button">Choice C</button> <button class="button">Choice D</button>
+      <button class="button">A. Conditional Statement</button> <button class="button"> B. Boolean Variable</button>
+      <button class="button">C. RegExp or Regular Expression</button> <button class="button"> D. All of the above</button>
       </div>
     </div>
+
+    <div class= "slide flex">
+      <div class="question-number"><h3><strong>Q2:</strong></h3></div>
+      <div class="question">
+        <p>Where do you put the JavaScript inside an HTML document?</p>
+      </div>
+        <hr style="border:2px solid #E52A6F; width:50%;">
+      <div id = "form">
+      <button class="button"> A. The meta section</button> <button class="button"> C. The body section</button>
+      <button class="button"> C. The head section</button> <button class="button"> D. Both A & B</button>
+      </div>
+    </div>
+
+    <div class= "slide flex">
+      <div class="question-number"><h3><strong>Q3:</strong></h3></div>
+      <div class="question">
+        <p>What is the name of the statement that is used to exit or end a loop?</p>
+      </div>
+        <hr style="border:2px solid #E52A6F; width:50%;">
+      <div id = "form">
+      <button class="button">A.  Break statement</button> <button class="button">C.  Close statement</button>
+      <button class="button">C.  Close statement</button> <button class="button">D.  Both A & B</button>
+      </div>
+    </div>
+
+    <div class= "slide flex">
+      <div class="question-number"><h3><strong>Q4:</strong></h3></div>
+      <div class="question">
+        <p>What is the syntax for using an alert?</p>
+      </div>
+        <hr style="border:2px solid #E52A6F; width:50%;">
+      <div id = "form">
+      <button class="button"> A. alertbox(“Hello World”);</button> <button class="button">B. output(“Hello World”);</button>
+      <button class="button"> C. alert(“Hello World”);</button> <button class="button"> D. Both A & C</button>
+      </div>
+    </div>
+
+
+
      <!-- Next and previous buttons -->
      <div id="arrow">
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+
   </div>
 
 </body>
