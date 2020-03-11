@@ -5,147 +5,146 @@
   <link href="css/style.css" rel = "stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan:700&display=swap" rel="stylesheet">
   <script src="javascript.js"></script>
+  <script type='text/javascript' src='./scripts/knockout-3.5.1.js'></script>
   <meta charset = "UTF-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
 
 </head>
 <body>
   <div id= "title">
-    <h1>Javascript</h1>
-    <h1>Trivia</h1>
+    <h1>Javascript <br>Trivia</h1>
   </div>
-
-  <div id = "slide-container">
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q1:</strong></h3></div>
-      <div class="question">
-        <p>Which statement is used to execute actions based on a trigger or condition?</p>
+<div class="scene">
+  <!--Full front and back card element that will be flipped -->
+  <div class="card" id="cardID">
+    <!--Front of the card -->
+    <div class=" card-face card-front slide-container">
+      <div class= "slide flex">
+        <!--Question, ID, and answers bound to activeQustion object-->
+            <div class="question-number"><h3><strong>Question&nbsp;</strong><strong data-bind="text: activeQuestion().id"></strong></h3></div>
+            <div class="question">
+              <p data-bind="text: activeQuestion().question"></p>
+            </div>
+              <hr style="border:2px solid #E52A6F; width:75%;">
+            <div id = "form">
+              <!--DO NOT REMOVE The following two comments are for Knockout containerless interation of button element.  DO NOT REMOVE-->
+            <!-- ko foreach: activeQuestion().answers -->
+            <button onclick="flipper()" class="button" >
+              <span data-bind="text: $data"></span>
+            </button>
+              <!-- /ko -->
+            </div>
       </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A. Conditional Statement</button> <button class="button"> B. Boolean Variable</button>
-      <button class="button">C. RegExp or Regular Expression</button> <button class="button"> D. All of the above</button>
-      </div>
+            <!-- Next and previous buttons -->
+            <div id="arrow">
+              <a class="prev" data-bind="click: decrementQuestion">&#10094;</a>
+              <a class="next"  data-bind="click: incrementQuestion">&#10095;</a>
+            </div>
     </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q2:</strong></h3></div>
-      <div class="question">
-        <p>Where do you put the JavaScript inside an HTML document?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button"> A. The meta section</button> <button class="button"> C. The body section</button>
-      <button class="button"> C. The head section</button> <button class="button"> D. Both A & B</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q3:</strong></h3></div>
-      <div class="question">
-        <p>What is the name of the statement that is used to exit or end a loop?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A.  Break statement</button> <button class="button">C.  Close statement</button>
-      <button class="button">C.  Close statement</button> <button class="button">D.  Both A & B</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q4:</strong></h3></div>
-      <div class="question">
-        <p>What is the syntax for using an alert?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button"> A. alertbox(“Hello World”);</button> <button class="button">B. output(“Hello World”);</button>
-      <button class="button"> C. alert(“Hello World”);</button> <button class="button"> D. Both A & C</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q5:</strong></h3></div>
-      <div class="question">
-        <p>What element stores multiple values in a single variable in JavaScript?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button"> A. Arrays</button> <button class="button">B. Maps</button>
-      <button class="button"> C. Variables</button> <button class="button"> D. All of the above</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q6:</strong></h3></div>
-      <div class="question">
-        <p>Which element represents either "true" or "false" values?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button"> A. Conditions</button> <button class="button">B. Loops</button>
-      <button class="button"> C. Boolean</button> <button class="button"> D. Both A & C</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q7:</strong></h3></div>
-      <div class="question">
-        <p>What can be used to display an information box when a button is clicked on a web page?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A. Constructors</button> <button class="button">B. Events</button>
-      <button class="button"> C. Conditions</button> <button class="button"> D. All of the above</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q8:</strong></h3></div>
-      <div class="question">
-        <p>What is a block of code called that is used to perform a specific task?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A. Method</button> <button class="button">B. Loop</button>
-      <button class="button"> C. Function</button> <button class="button"> D. All of the above</button>
-      </div>
-    </div>
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q9:</strong></h3></div>
-      <div class="question">
-        <p>What is the HTML tag used to include JavaScript code?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A.  &ltjavascript></button> <button class="button">B. &ltJS></button>
-      <button class="button"> C.  &ltscript></button> <button class="button"> D. Both A & C</button>
-      </div>
-    </div>
-
-
-    <div class= "slide flex">
-      <div class="question-number"><h3><strong>Q10:</strong></h3></div>
-      <div class="question">
-        <p>What is the syntax to refer to an external JavaScript file?</p>
-      </div>
-        <hr style="border:2px solid #E52A6F; width:50%;">
-      <div id = "form">
-      <button class="button">A.  &ltscript src=”web330.js”></button> <button class="button">B. &ltscript href=”web330.js”></button>
-      <button class="button"> C. &ltscript ref=”web330.js”></button> <button class="button"> D. Both B & C</button>
-      </div>
-    </div>
-
-
-     <!-- Next and previous buttons -->
-     <div id="arrow">
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-
+    <!--Back of the card -->
+    <div class="card-face card-back slide-container">
+      <div class= "slide flex">
+        <!--to do: add Correct/incorrect message and style buttons to show correct/incorrect selections-->
+        <div class="question-number"><h3>This is feedback</h3></div>
+        <div class="question">
+          <p data-bind="text: activeQuestion().question"></p>
+        </div>
+          <hr style="border:2px solid #E52A6F; width:75%;">
+        <div id = "form">
+            <!-- ko foreach: activeQuestion().answers -->
+            <button onclick="flipper()" class="button" >
+              <span data-bind="text: $data"></span>
+            </button>
+              <!-- /ko -->
+        </div>
   </div>
+                  <!-- Next and previous buttons -->
+                  <div id="arrow">
+                    <a class="prev" onclick="flipper()" data-bind="click: decrementQuestion">&#10094;</a>
+                    <a class="next" onclick="flipper()" data-bind="click: incrementQuestion">&#10095;</a>
+                  </div>
+    </div>
+  </div>
+</div>
 
+<script>
+  function vm() {
+    //Set active Question to zero on page load/reload
+    this.activeQuestionNumber = ko.observable(0);
+    //Object with questions and answers
+    this.questions = ko.observableArray([
+      {id: 1,
+        question: 'Which statement is used to execute actions based on a trigger or condition?',
+        rightAnswer: 'Conditional Statement',
+        answers: ['Conditional Statement','Boolean Variable','RegExp or Regular Expression','All of the above']
+      },
+      { id: 2,
+        question: 'Where do you put the JavaScript inside an HTML document?',
+        rightAnswer: 'Both <meta> and <body> sections',
+        answers: ['The <meta> section','The <body> section', 'The <head> section','Both <meta> and <body> sections']
+      },
+      {id: 3,
+        question: 'What is the name of the statement that is used to exit or end a loop?',
+        rightAnswer: 'Break statement',
+        answers: ['Break statement','Conditional statement','Close statement','Both A & B']
+      }, 
+      {id: 4,
+        question: 'What is the syntax for using an alert?',
+        rightAnswer: 'alert(“Hello World”);',
+        answers: ['alertbox(“Hello World”);','output(“Hello World”);','alert(“Hello World”);','Both A & C']
+      }, 
+      {id: 5,
+        question: 'What element stores multiple values in a single variable in JavaScript?',
+        rightAnswer: 'Arrays',
+        answers: ['Arrays','Maps','Variables','All of the above']
+      },
+      {id: 6,
+        question: 'Which element represents either "true" or "false" values?',
+        rightAnswer: 'Boolean',
+        answers: ['Condition','Loops','Boolean','Both A & C']
+      },
+      {id: 7,
+        question: 'What is the syntax to refer to an external JavaScript file?',
+        rightAnswer: '<script src=”web330.js”>',
+        answers: ['<script src=”web330.js”>','<script href=”web330.js”>','<script ref=”web330.js”>','Both B & C']
+      },
+      {id: 8,
+        question: 'What can be used to display an information box when a button is clicked on a web page?',
+        rightAnswer: 'Events',
+        answers: ['Constructor','Events','Conditions','All of the above']
+      },
+      {id: 9,
+        question: 'What is a block of code called that is used to perform a specific task?',
+        rightAnswer: 'Function',
+        answers: ['Method','Loop','Function','All of the above']
+      },
+      {id: 10,
+        question: 'What is the HTML tag used to include JavaScript code?',
+        rightAnswer: '<script>',
+        answers: ['<javascript>','<JS>','<script>','Both A & C']
+      }
+    ]);
+    //function to advance to next question
+      this.incrementQuestion = function() {
+        var previousCount = this.activeQuestionNumber();
+        if (previousCount < this.questions().length - 1) {
+        this.activeQuestionNumber(previousCount + 1);
+        console.log('In the increment', JSON.stringify(activeQuestion().answers));
+        }
+      };
+    //function to go back to last question
+      this.decrementQuestion = function() {
+        var previousCount = this.activeQuestionNumber();
+        if (previousCount > 0) {
+        this.activeQuestionNumber(previousCount - 1);
+        }
+      };
+    //Computed value to reactively bind the active question object using the activeQuestionNumber variable
+      this.activeQuestion = ko.computed(function() {
+    return this.questions()[this.activeQuestionNumber()];
+  }, this);
+  }
+  ko.applyBindings(vm);
+</script>
 </body>
 </html>
