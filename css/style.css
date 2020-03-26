@@ -37,6 +37,7 @@ h1 {
   border-radius: 20px;
   box-shadow: 5px 5px 0 #675682;
   padding: 10px;
+  min-height: 500px;
   margin: 2em auto;
 }
 
@@ -51,12 +52,29 @@ h1 {
   display: flex;
 }
 
+.slide-container.question-number {
+position: sticky;
+top: 0;
+}
+
 .question-number {
   width: 90%;
   margin-left: 10px;
+  align-items: flex-start;
 }
-.question {
+
+.question-answer {
   width: 90%;
+  text-align: center;
+}
+
+.question {
+  width: 85%;
+  height: auto;
+}
+
+.answer {
+  width: 85%;
   height: auto;
 }
 
@@ -149,6 +167,7 @@ h1 {
   border-radius: 20px;
   box-shadow: 5px 5px 0 #675682;
   justify-content: center;
+  align-content: center;
   align-items: center;
   background: white;
   transform: rotateY(180deg);
