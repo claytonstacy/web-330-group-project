@@ -106,6 +106,7 @@ h1 {
   width: 80%;
 }
 .button {
+  background-color: #a1cdde;
   cursor: pointer;
   width: 40%;
   height: 50px;

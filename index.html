@@ -46,8 +46,7 @@
       <div class= "slide flex">
         <!--to do: add Correct/incorrect message and style buttons to show correct/incorrect selections-->
         <div class="question-number">
-          <h3>Good job!  You are correct!</h3>
-          <h3>Oops! The correct answer is ...</h3>
+          <h3 id="response"></h3>
         </div>
         <div class="question">
         </div>
@@ -163,6 +162,9 @@
     // Tally of correct answers
       this.numberCorrect = 0;
       this.numberIncorrect = 0;
+
+    // empty message
+    this.message = '';
     //function to advance to next question
       this.incrementQuestion = function() {
         var previousCount = this.activeQuestionNumber();
@@ -189,11 +191,13 @@
         self.numberCorrect++
         console.log('This is the number correct', self.numberCorrect);
         flipper();
+        document.getElementById("response").innerHTML = "Good job!  You are correct!";
         } else {
           self.activeQuestion().selectedAnswer = ans;
           self.numberIncorrect++
-          console.log('This this many incorrect', self.numberIncorrect);
+          console.log('This is the number incorrect', self.numberIncorrect);
           flipper();
+          document.getElementById("response").innerHTML = "Oops! The correct answer is ...";
         }
       }
   }
