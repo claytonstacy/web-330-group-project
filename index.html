@@ -44,9 +44,10 @@
     <!--Back of the card -->
     <div class="card-face card-back slide-container">
       <div class= "slide flex">
-        <!--to do: add Correct/incorrect message and style buttons to show correct/incorrect selections-->
+        <!--to do: style buttons to show correct/incorrect selections-->
         <div class="question-number">
           <h3 id="response"></h3>
+          <p data-bind="text: activeQuestion().rightAnswer"></p>
         </div>
         <div class="question">
         </div>

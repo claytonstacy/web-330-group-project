@@ -106,7 +106,7 @@ h1 {
   width: 80%;
 }
 .button {
-  background-color: #a1cdde;
+  background-color: white;
   cursor: pointer;
   width: 40%;
   height: 50px;
@@ -116,16 +116,21 @@ h1 {
   box-shadow: 5px 5px 0 #675682;
 }
 
+.button:hover {
+  background-color: #a1cdde;
+}
+
 .button:active {
+  background-color: #a1cdde;
   box-shadow: 3px 3px 0 #675682;
   transform: translateY(4px) translateX(4px);
 }
 
-.correct {
+.button.correct {
   background-color: #67AECA;
 }
 
-.wrong {
+.button.wrong {
   background-color: #E52A6F;
   border: 5px solid #E52A6F;
 
