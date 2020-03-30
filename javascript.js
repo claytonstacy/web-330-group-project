@@ -12,6 +12,7 @@ window.onclick = function(event) {
     document.getElementById("overlay").style.display = "none";
   }
 }
+
 // card flip
 function flipper() {
     var element = document.getElementById("cardID");
