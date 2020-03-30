@@ -75,7 +75,14 @@
 <button onclick="on()" class="show">Show My Results</button>
 </div>
 <div id="overlay">
-  <div id="text">Results Here</div>
+  <div id="text">
+    <h2>RESULTS</h2>
+    <h4>You are a <span>Expert? Novice? Beginner?</span></h4>
+    <p> Score: <span>%</span></p>
+    <p>Total number correct: <span data-bind="text: this.numberCorrect "></span></p>
+    <p>Total number incorrect: <span data-bind="text: this.numberIncorrect "></span></p>
+  </div>
+  
 </div>
 
 <script>
