@@ -77,8 +77,9 @@
 <div id="overlay">
   <div id="text">
     <h2>RESULTS</h2>
-    <h4>You are a <span>Expert? Novice? Beginner?</span></h4>
-    <p> Score: <span>%</span></p>
+    <h4 data-bind="text: totalMessage"></h4>
+    <h4>Your result: <span data-bind="text: percentage"></span></h4>
+    <p> Score: <span data-bind="numberCorrect / 10 + %"></span></p>
     <p>Total number correct: <span data-bind="text: this.numberCorrect "></span></p>
     <p>Total number incorrect: <span data-bind="text: this.numberIncorrect "></span></p>
   </div>
@@ -174,9 +175,23 @@
         }
     ]);
     // Tally of correct answers
-      this.numberCorrect = 0;
-      this.numberIncorrect = 0;
-
+      this.numberCorrect = ko.observable(0);
+      this.numberIncorrect = ko.observable(0);
+      this.percentage = ko.pureComputed(function() {
+        return this.numberCorrect() * 10 + '%';
+      })
+      this.totalMessage = ko.computed(function() {
+        var message = '';
+        console.log('This is the first message', message);
+        if(self.numberCorrect() < 7) {
+          message = 'You are a Beginner!';
+        } else if (self.numberCorrect() > 6 && self.numberCorrect() < 8) {
+          message = 'You are a Novice!'
+        } else {
+          message = 'You are an Expert!'
+        }
+        return message
+      })
     // empty message
     this.message = '';
     //function to advance to next question
@@ -202,14 +217,14 @@
           flipper();
         } else if (self.activeQuestion().rightAnswer == ans){
         self.activeQuestion().selectedAnswer = ans;
-        self.numberCorrect++
-        console.log('This is the number correct', self.numberCorrect);
+        self.numberCorrect(self.numberCorrect() + 1)
+        console.log('This is the number correct', self.numberCorrect());
         flipper();
         document.getElementById("response").innerHTML = "Good job!  You are correct!";
         } else {
           self.activeQuestion().selectedAnswer = ans;
-          self.numberIncorrect++
-          console.log('This is the number incorrect', self.numberIncorrect);
+          self.numberIncorrect(self.numberIncorrect + 1)
+          console.log('This is the number incorrect', self.numberIncorrect());
           flipper();
           document.getElementById("response").innerHTML = "Oops! The correct answer is ...";
         }
