@@ -1,3 +1,18 @@
+// results overlay
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+  
+}
+window.onclick = function(event) {
+  if (event.target == overlay) {
+    document.getElementById("overlay").style.display = "none";
+  }
+}
+// card flip
 function flipper() {
     var element = document.getElementById("cardID");
     element.classList.toggle("flip");
@@ -31,3 +46,4 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 */
+

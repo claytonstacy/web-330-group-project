@@ -23,7 +23,7 @@ h1 {
 
 #title {
   max-width: 800px;
-  margin: 1em auto;
+  margin: 1em auto -3em;
   text-align: center;
   color: white;
 }
@@ -95,7 +95,7 @@ h1 {
   right: 0;
 }
 
-/* Form Buttons */
+/* Quiz Buttons */
 
 #form {
   display: flex;
@@ -135,6 +135,8 @@ h1 {
   border: 5px solid #E52A6F;
 
 }
+
+/* Card Flip */
 .scene {
   display: flex;
   margin: auto;
@@ -173,4 +175,58 @@ h1 {
 }
 .flip {
   transform: rotateY(180deg);
+}
+
+/* Show Results */
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white; /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: #675682;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+.submit {
+  display: flex;
+  margin: auto;
+  width: 800px;
+}
+.show {
+  background-color: #E52A6F;
+  cursor: pointer;
+  width: 300px;
+  height: 50px;
+  margin: 100px auto 0px auto;
+  border-radius: 20px;
+  border: 5px solid #E52A6F;
+  box-shadow: 5px 5px 0 #675682;
+  font-size: large;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  color: white;
+}
+
+.show:hover {
+  background-color: #E52A6F;
+}
+
+.show:active {
+  background-color: #E52A6F;
+  box-shadow: 3px 3px 0 #675682;
+  transform: translateY(4px) translateX(4px);
 }
