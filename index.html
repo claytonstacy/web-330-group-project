@@ -78,10 +78,8 @@
   <div id="text">
     <h2>RESULTS</h2>
     <h4 data-bind="text: totalMessage"></h4>
-    <h4>Your result: <span data-bind="text: percentage"></span></h4>
-    <p> Score: <span data-bind="numberCorrect / 10 + %"></span></p>
-    <p>Total number correct: <span data-bind="text: this.numberCorrect "></span></p>
-    <p>Total number incorrect: <span data-bind="text: this.numberIncorrect "></span></p>
+    <h4>Your result: <span data-bind="text: percentage"></h4>
+    <p>Total number correct: <span data-bind="text: numberCorrect "></span></p>
   </div>
   
 </div>
@@ -182,7 +180,6 @@
       })
       this.totalMessage = ko.computed(function() {
         var message = '';
-        console.log('This is the first message', message);
         if(self.numberCorrect() < 7) {
           message = 'You are a Beginner!';
         } else if (self.numberCorrect() > 6 && self.numberCorrect() < 8) {
@@ -218,13 +215,11 @@
         } else if (self.activeQuestion().rightAnswer == ans){
         self.activeQuestion().selectedAnswer = ans;
         self.numberCorrect(self.numberCorrect() + 1)
-        console.log('This is the number correct', self.numberCorrect());
         flipper();
         document.getElementById("response").innerHTML = "Good job!  You are correct!";
         } else {
           self.activeQuestion().selectedAnswer = ans;
           self.numberIncorrect(self.numberIncorrect + 1)
-          console.log('This is the number incorrect', self.numberIncorrect());
           flipper();
           document.getElementById("response").innerHTML = "Oops! The correct answer is ...";
         }
