@@ -195,14 +195,14 @@
       this.incrementQuestion = function() {
         var previousCount = this.activeQuestionNumber();
         if (previousCount < this.questions().length - 1) {
-        this.activeQuestionNumber(previousCount + 1);
+        setTimeout(function() { this.activeQuestionNumber(previousCount + 1); }, 400);
         }
       };
     //function to go back to last question
       this.decrementQuestion = function() {
         var previousCount = this.activeQuestionNumber();
         if (previousCount > 0) {
-        this.activeQuestionNumber(previousCount - 1);
+        setTimeout(function() { this.activeQuestionNumber(previousCount - 1); }, 400);
         }
       };
     //Computed value to reactively bind the active question object using the activeQuestionNumber variable

@@ -1,3 +1,13 @@
+  
+/*
+============================================
+Title: Group Project
+Author: Clayton Stacy, Izabella Kornelis, Chris Bohnet
+Date: 17 March 2020
+Description: Javascript Trivia
+============================================
+*/
+
 // results overlay
 function on() {
   document.getElementById("overlay").style.display = "block";
