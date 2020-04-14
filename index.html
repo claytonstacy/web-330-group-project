@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id= "title">
-    <h1>Javascript <br>Trivia</h1>
+    <h1>Javascript Trivia</h1>
   </div>
 <div class="scene">
   <!--Full front and back card element that will be flipped -->
@@ -37,7 +37,7 @@
       </div>
             <!-- Next and previous buttons -->
             <div id="arrow">
-              <a class="prev" data-bind="click: decrementQuestion">&#10094;</a>
+              <span data-bind="if: activeQuestionNumber() > 0"><a class="prev" data-bind="click: decrementQuestion">&#10094;</a></span>
               <a class="next"  data-bind="click: incrementQuestion">&#10095;</a>
             </div>
     </div>
@@ -65,7 +65,7 @@
   </div>
                   <!-- Next and previous buttons -->
                   <div id="arrow">
-                    <a class="prev" onclick="flipper()" data-bind="click: decrementQuestion">&#10094;</a>
+                    <span data-bind="if: activeQuestionNumber() > 0"><a class="prev" onclick="flipper()" data-bind="click: decrementQuestion">&#10094;</a></span>
                     <a class="next" onclick="flipper()" data-bind="click: incrementQuestion">&#10095;</a>
                   </div>
     </div>
@@ -77,6 +77,7 @@
 <div id="overlay">
   <div id="text">
     <h2>RESULTS</h2>
+    <hr style="border:2px solid #E52A6F; width:75%;">
     <h4 data-bind="text: totalMessage"></h4>
     <h4>Your result: <span data-bind="text: percentage"></h4>
     <p>Total number correct: <span data-bind="text: numberCorrect "></span></p>
@@ -196,6 +197,8 @@
         var previousCount = this.activeQuestionNumber();
         if (previousCount < this.questions().length - 1) {
         setTimeout(function() { this.activeQuestionNumber(previousCount + 1); }, 400);
+        } else if (previousCount === this.questions().length -1) {
+          on()
         }
       };
     //function to go back to last question
